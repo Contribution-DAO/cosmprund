@@ -665,7 +665,6 @@ func pruneAppState(home string) error {
 			"smartaccount", //samoduletypes.StoreKey,
 			"authz,",       //authzkeeper.StoreKey,
 			"wasm",         //wasmtypes.StoreKey,
-			"ibchooks",     //ibchookstypes.StoreKey,
 		)
 
 		for key, value := range auraKeys {
