@@ -665,6 +665,30 @@ func pruneAppState(home string) error {
 		for key, value := range dymensionKeys {
 			keys[key] = value
 		}
+	} else if app == "injective" {
+		injectiveKeys := types.NewKVStoreKeys(
+			"feegrant",
+			"authz",
+			"icahost",
+			"feeibc",
+			"crisis",
+			"consessus",
+			"packetfowardmiddleware",
+			"exchange",
+			"oracle",
+			"insurance",
+			"peggy",
+			"auction",
+			"chainlink",
+			"tokenfactory",
+			"permissions",
+			"wasm",
+			"xwasm",
+		)
+
+		for key, value := range injectiveKeys {
+			keys[key] = value
+		}
 	}
 
 	// TODO: cleanup app state
