@@ -489,8 +489,7 @@ func pruneAppState(home string) error {
 			keys[key] = value
 		}
 	} else if app == "bitsong" {
-		bitsongKeys := types.NewKVStoreKeys(
-			"feegrant",               // feegrant.StoreKey,
+		bitsongKeys := types.NewKVStoreKeys("feegrant", // feegrant.StoreKey,
 			"authz",                  // authzkeeper.StoreKey,
 			"packetfowardmiddleware", // routertypes.StoreKey,
 			"fantoken",               // fantokentypes.StoreKey,
@@ -630,6 +629,17 @@ func pruneAppState(home string) error {
 		)
 
 		for key, value := range archwayKeys {
+			keys[key] = value
+		}
+	} else if app == "celestia" {
+		celetiaKeys := types.NewKVStoreKeys(
+			"authz",
+			"feegrant",
+			"blob",
+			"qgb",
+		)
+
+		for key, value := range celetiaKeys {
 			keys[key] = value
 		}
 	} else if app == "dymension" {
