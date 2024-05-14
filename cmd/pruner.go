@@ -655,6 +655,22 @@ func pruneAppState(home string) error {
 		for key, value := range dymensionKeys {
 			keys[key] = value
 		}
+	} else if app == "aura" {
+		auraKeys := types.NewKVStoreKeys(
+			"crisis",       //crisistypes.StoreKey,
+			"consensus",    //consensusparamtypes.StoreKey,
+			"ibc",          //ibcexported.StoreKey,
+			"feegrant",     //feegrant.StoreKey,
+			"aura",         //auramoduletypes.StoreKey,
+			"smartaccount", //samoduletypes.StoreKey,
+			"authz,",       //authzkeeper.StoreKey,
+			"wasm",         //wasmtypes.StoreKey,
+			"ibchooks",     //ibchookstypes.StoreKey,
+		)
+
+		for key, value := range auraKeys {
+			keys[key] = value
+		}
 	}
 
 	// TODO: cleanup app state
