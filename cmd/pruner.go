@@ -689,6 +689,35 @@ func pruneAppState(home string) error {
 		for key, value := range injectiveKeys {
 			keys[key] = value
 		}
+	} else if app == "babylon" {
+		babylonKeys := types.NewKVStoreKeys(
+			"crisis",    // crisistypes.StoreKey,
+			"consessus", // consessustypes.StoreKey,
+			"feegrant",  // feegrant.StoreKey,
+			"circuit",   // circuit.StoreKey,
+
+			// custom modules
+			"epoching",       // epochingtypes.StoreKey,
+			"btclightclient", // btclightclienttypes.StoreKey,
+			"btccheckpoint",  // btccheckpointtypes.StoreKey,
+			"checkpointing",  // checkpointingtypes.StoreKey,
+			"monitor",        // monitortypes.StoreKey,
+
+			// IBC-related modules
+			"feeibc",        // feeibc.StoreKey,
+			"zoneconcierge", // zctypes.StoreKey,
+
+			// BTC staking
+			"btcstaking", // btcstakingtypes.StoreKey,
+			"finality",   // finalitytypes.StoreKey,
+
+			"wasm",      // wasm.StoreKey,
+			"incentive", // incentivetypes.StoreKey,
+		)
+
+		for key, value := range babylonKeys {
+			keys[key] = value
+		}
 	}
 
 	// TODO: cleanup app state
