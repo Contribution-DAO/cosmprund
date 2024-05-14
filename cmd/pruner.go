@@ -632,6 +632,29 @@ func pruneAppState(home string) error {
 		for key, value := range archwayKeys {
 			keys[key] = value
 		}
+	} else if app == "dymension" {
+		dymensionKeys := types.NewKVStoreKeys(
+			"authz",
+			"feegrant",               //feegrant.StoreKey,
+			"rollapp",                //rollappmoduletypes.StoreKey,
+			"sequencer",              //sequencermoduletypes.StoreKey,
+			"streamer",               //streamermoduletypes.StoreKey,
+			"packetfowardmiddleware", //packetforwardtypes.StoreKey,
+			"delayedack",             //delayedacktypes.StoreKey,
+			"eibc",                   //eibcmoduletypes.StoreKey,
+			"evm",                    //evmtypes.StoreKey,
+			"feemarket",              //feemarkettypes.StoreKey,
+			"lockup",                 //lockuptypes.StoreKey,
+			"epochs",                 //epochstypes.StoreKey,
+			"gamm",                   //gammtypes.StoreKey,
+			"poolmanager",            //poolmanagertypes.StoreKey,
+			"incentives",             //incentivestypes.StoreKey,
+			"txfees",                 //txfeestypes.StoreKey,
+		)
+
+		for key, value := range dymensionKeys {
+			keys[key] = value
+		}
 	}
 
 	// TODO: cleanup app state
