@@ -656,6 +656,7 @@ func pruneAppState(home string) error {
 			keys[key] = value
 		}
 	} else if app == "aura" {
+		fmt.Println("Start pruning aura network...")
 		auraKeys := types.NewKVStoreKeys(
 			"crisis",       //crisistypes.StoreKey,
 			"consensus",    //consensusparamtypes.StoreKey,
