@@ -631,6 +631,17 @@ func pruneAppState(home string) error {
 		for key, value := range archwayKeys {
 			keys[key] = value
 		}
+	} else if app == "celestia" {
+		celetiaKeys := types.NewKVStoreKeys(
+			"authz",
+			"feegrant",
+			"blob",
+			"qgb",
+		)
+
+		for key, value := range celetiaKeys {
+			keys[key] = value
+		}
 	}
 
 	// TODO: cleanup app state
