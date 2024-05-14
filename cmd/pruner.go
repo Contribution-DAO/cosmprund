@@ -665,6 +665,28 @@ func pruneAppState(home string) error {
 		for key, value := range dymensionKeys {
 			keys[key] = value
 		}
+	} else if app == "umee" {
+		umeeKeys := types.NewKVStoreKeys(
+			"feegrant",
+			"authz",
+			"nft",
+			"group",
+			"icahost",
+			"leverage",
+			"oracle",
+			"packetfowardmiddleware",
+			"uibc",
+			"ugov",
+			"wasm",
+			"incentive",
+			"metoken",
+			"consensus",
+			"crisis",
+		)
+
+		for key, value := range umeeKeys {
+			keys[key] = value
+		}
 	}
 
 	// TODO: cleanup app state
