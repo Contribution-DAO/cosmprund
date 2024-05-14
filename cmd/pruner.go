@@ -612,6 +612,26 @@ func pruneAppState(home string) error {
 		for key, value := range desmosKeys {
 			keys[key] = value
 		}
+	} else if app == "archway" {
+		archwayKeys := types.NewKVStoreKeys(
+			"wasm",
+			"ibc",
+			"icacontroller",
+			"icahost",
+			"feeibc",
+			"group",
+			"nft",
+			"cwica",
+			"tracking",
+			"rewards",
+			"callback",
+			"cwfees",
+			"cwerrors",
+		)
+
+		for key, value := range archwayKeys {
+			keys[key] = value
+		}
 	}
 
 	// TODO: cleanup app state
